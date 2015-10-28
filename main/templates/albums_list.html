@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block body%}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="btn-group">
+                        {% for album in albums %}
+                                            <div class="dropdown" style="display: inline">
+
+                            <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <h2>{{album.album_title}}</h2>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>Artist(s)<a href="#">{{artist.pk}}</a></li>
+                                    {% for artist in albums.artist_set.all %}
+                                        {{artist}}
+                                    {% endfor %}
+                                                    
+                                <li><a href="#">Release Date:{{album.album_date_released}}</a></li>
+                            </ul>
+                                                </div>
+
+                         {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+                    
+{% endblock body%}
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+
+{% block body%}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+
+                {% for album in albums %}
+
+                    <h2>Artsit: {{album.artist}}</h2>
+
+                    <h2>Album Title: {{album.album_title}}</h2><br>
+                    <h2>Released: {{album.album_date_released}}</h2><br>
+
+                {% endfor %}
+
+{% endblock body %}
+
+{% endcomment %}
+

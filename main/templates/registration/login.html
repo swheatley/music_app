@@ -1,0 +1,48 @@
+
+
+{% block content %}
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if request.user.is_anonymous %}
+    <form method="post" action="{% url 'login_view' %}">
+        {% csrf_token %}
+        <table>
+        <tr>
+            <td>{{ form.email.label_tag }}</td>
+            <td>{{ form.email }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.password.label_tag }}</td>
+            <td>{{ form.password }}</td>
+        </tr>
+        </table>
+
+        <input type="submit" value="login" />
+        <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+    </br>
+
+    <a href="{% url 'social:begin' 'twitter' %}?next={% url 'main_page' %}">Login with Twitter</a>
+    <br>
+    <a href="{% url 'social:begin' 'facebook' %}?next={% url 'main_page' %}">Login with Facebook</a>
+    <br>
+    <a href="{% url 'social:begin' 'instagram' %}?next={% url 'main_page' %}">Login with Instagram</a>
+
+{% else %}
+
+<a href="/logout/">logout</a>
+
+{% endif %}
+
+
+{{ valid }}
+{{form.errors }}
+
+{% endblock %}
+
+
+
+

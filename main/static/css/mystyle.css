@@ -1,0 +1,28 @@
+.btn-default{
+    
+    margin: 10px;
+
+}
+
+.btn-default a{
+    text-decoration: none;
+
+}
+.brand a{
+    color: white;
+    text-decoration: none;
+
+}
+.brand a:hover{
+    color: grey;
+}
+.btn-group li a:hover{
+    background-color: red;
+    color: yellow;
+    
+}
+.btn-group li a{
+    font-weight: bolder;
+
+
+ }
