@@ -1,6 +1,8 @@
 {% extends 'base.html'%}
 
 {% block body%}
+
+{% comment %}
     {% for track in tracks %}
         {{track.track_title}}
         {% for genre in track.genre_set.all %}
@@ -10,51 +12,49 @@
             <h1>{{artist}}</h1>
         {%endfor%}
     {%endfor%}
-
+{% endcomment %}
 
 
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-6">
-                <div class="btn-group">
-                    {% for track in tracks %}
-                        <div class="dropdown" style="display: inline">
+            <div class="col-sm-1 col-md-1 col-lg-1">
+                 <div class="row">
+                    <div class="btn-group">
+                        <div class="artist_list">
+                        {% for track in tracks %}
+                            <div class="dropdown" style="display: inline">
 
-                            <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <h2>{{track.track_title}}</h2>
-                            </button>
-                            <ul class="dropdown-menu">
+                                <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <h2>{{track.track_title}}</h2>
+                                </button>
+                                <ul class="dropdown-menu">
+                                
+                                    <li><a href="#">Artist: {{artist.pk}}</a>
                             
-                                <li><a href="#">Artist: {{artist.pk}}</a>
-                        
-                            {{track.album_set }}
-                            </li>
-
-                            {% for genre in track.genre_set.all %}
-                            
-                                {{genre}}
-                                  {% endfor %}
+                                {{track.album_set }}
                                 </li>
-                          
 
-                            {% for album in track.album_set.all %}
-
-
-
-                                    {% for artist in album.artist_set.all %}
-                                        {{artist.artist_name}}
+                                {% for genre in track.genre_set.all %}
+                                
+                                    {{genre}}
+                                      {% endfor %}
+                                    </li>
                               
-                                    
-                                    {% endfor %}
+                                {% for album in track.album_set.all %}
 
-                            {% endfor %}
+                                        {% for artist in album.artist_set.all %}
+                                            {{artist.artist_name}}
+                                        
+                                        {% endfor %}
 
-                                <li><a href="#">Genre: {{track.genre.pk}}</a></li>
-                            </ul>
-                                                </div>
+                                {% endfor %}
 
+                                    <li><a href="#">Genre: {{track.genre.pk}}</a></li>
+                                </ul>
+                                                
                         {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
@@ -73,20 +73,5 @@
 
 
 
-{% comment %}
-{% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-6">
-                {% for track in tracks %}
-
-                    <h2>Album: {{track.ablum}}</h2>
-                    <h2>Song (track) Title:{{track.track_title}}</h2><br>
-                    <h2>Genre: {{track.genre}}</h2>
-
-                {% endfor %}
-
-{% endblock body %}
-{% endcomment %}
 
 

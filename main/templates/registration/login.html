@@ -1,6 +1,9 @@
-
+{% load staticfiles %}
 
 {% block content %}
+
+<div class="login">
+    
 
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
@@ -33,13 +36,15 @@
 
 {% else %}
 
-<a href="/logout/">logout</a>
+<a href="/main_page/">logout</a>
 
 {% endif %}
 
 
 {{ valid }}
 {{form.errors }}
+        
+    </div>
 
 {% endblock %}
 

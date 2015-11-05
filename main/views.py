@@ -5,7 +5,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 from main.models import Genres, Artist, Albums, Tracks
 
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 
 from main.models import CustomUser
 from main.forms import UserSignUp, UserLogin
@@ -13,6 +13,24 @@ from main.forms import UserSignUp, UserLogin
 from django.contrib.auth import authenticate, login, logout
 
 from django.db import IntegrityError
+
+
+def ajax_search(request):
+    context = {}
+    return render_to_response('ajax_search.html', context, context_instance=RequestContext(request))
+
+
+def json_response(request):
+    search_string = request.GET.get('search', '')
+
+    objects = Artist.objects.filter(artist_name__icontains=search_string)
+
+    object_list = []
+
+    for obj in objects:
+        object_list.append(obj.name)
+
+    return JsonResponse(object_list, safe=False)
 
 
 def signup(request):

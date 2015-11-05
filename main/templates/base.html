@@ -60,31 +60,39 @@
 
                         <ul class="nav navbar-nav">
                             <li>
-                                <button class="btn btn-default btn-lg dropdown-toggle" type="button" data_toggle="dropdown">
+                                <button class="btn btn-default btn-lg"  type="button">
                                 <a href="/artist_list/">Artist</a>
                                 </button>
                             </li>
                             <li>
-                                 <button class="btn btn-default btn-lg dropdown-toggle" type="button" data_toggle="dropdown">
-
-                                <a href="/genres_list/">Genres</a>
+                                 <button class="btn btn-default btn-lg" type="button">
+                                    <a href="/genres_list/">Genres</a>
                                 </button>
                             </li>
                             <li>
-                                 <button class="btn btn-default btn-lg dropdown-toggle" type="button" data_toggle="dropdown">
-
-                                <a href="/albums_list/">Albums</a>
+                                 <button class="btn btn-default btn-lg" type="button">
+                                    <a href="/albums_list/">Albums</a>
                                 </button>
                             </li>
                             <li>
-                                 <button class="btn btn-default btn-lg dropdown-toggle" type="button" data_toggle="dropdown">
-
-                                <a href="/tracks_list/">Songs</a>
+                                 <button class="btn btn-default btn-lg" type="button">
+                                    <a href="/tracks_list/">Songs</a>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="btn btn-default btn-lg" type="button">
+                                    <a href="/login/">Login</a>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="btn btn-default btn-lg" type="button">
+                                    <a href="/logout/">Logout</a>
                                 </button>
                             </li>
                         </ul>
-                    </button>
+            </button>
 
+                    {% comment %}
                     <div>
                         
                         {% if user.is_anonymous %}
@@ -96,6 +104,7 @@
                         {% endif %}
 
                     </div>
+                    {% endcomment %}
             
 
             </div>
@@ -107,27 +116,22 @@
     {% block body %}
 
 
+
+
     {% endblock body %}
     <!-- /.container -->
 
-
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                   
-                </div>
-            </div>
-        </div>
-    </footer>
-
-
     <!-- jQuery -->
+
+    <script src="{% static '//code.jquery.com/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static '//code.jquery.com/jquery-migrate-1.2.1.min.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
     <script src="{% static 'js/jquery.js' %}"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'js/app.js' %}"></script>
 
     <!-- Script to Activate the Carousel -->
     <script>

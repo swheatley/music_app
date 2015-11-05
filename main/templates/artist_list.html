@@ -4,36 +4,26 @@
 {% block body%}
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-6">
-
-
-
-                    
+            <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="btn-group">
-                        {% for artist in artist %}
-                                            <div class="dropdown" style="display: inline">
+                        <div class="artist_list">
+                            {% for artist in artist %}
+                                                <div class="dropdown" style="display: inline">
 
-                            <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <h2>{{artist.artist_name}}</h2>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Website: {{artist.artist_website}}</a></li>
-                                <li><a href="#">Social Media: @{{artist.artist_handle}}</a></li>
-                            </ul>
-                                                </div>
-
-                         {% endfor %}
-                </div>
+                                <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <h2>{{artist.artist_name}}</h2>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Website: {{artist.artist_website}}</a></li>
+                                    <li><a href="#">Social Media: @{{artist.artist_handle}}</a></li>
+                                </ul>
+                        </div>
+                            {% endfor %}
+                    </div>
             </div>
         </div>
     </div>
-                    
-                   
-        
-    
-    
-               
-        
+                           
 
 {% endblock body%}
 

@@ -58,6 +58,9 @@ urlpatterns = [
     url(r'^register/$', CreateView.as_view(template_name='register.html', form_class=CustomUserCreationForm, success_url='/')),
     url(r'^$', views.GenreListView.as_view()),
 
+    url(r'^ajax_search/$', 'main.views.ajax_search'),
+    url(r'^json_response/$', 'main.views.json_response'),
+
 ]
 
 

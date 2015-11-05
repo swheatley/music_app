@@ -4,10 +4,11 @@
 {% block body%}
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-6">
+            <div class="col-sm-12 col-md-12 col-lg-12">
                 <div class="btn-group">
+                    <div class="artist_list">
                         {% for genre in genres %}
-                                            <div class="dropdown" style="display: inline">
+                                <div class="dropdown" style="display: inline">
 
                             <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <h2>{{genre.genre_title}}</h2>
@@ -16,9 +17,10 @@
                                 <li><a href="#">Artist(s) {{genre.artist.artist_name}}</a></li>
                                 <li><a href="#">Social Media: @{{artist.artist_handle}}</a></li>
                             </ul>
-                                                </div>
+                                </div>
 
                          {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
