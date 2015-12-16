@@ -93,8 +93,8 @@ class CustomUserManager(BaseUserManager):
     def create_user(self, email=None, username=None, password=None, **extra_fields):
         return self._create_user(email, username, password, False, False, **extra_fields)
 
-    def create_superuser(self, email, username, password, **extra_fields):
-        return self._create_user(email, password, True, True, **extra_fields)
+    def create_superuser(self, email=None, username=None, password=None, **extra_fields):
+        return self._create_user(email, username, password, True, True, **extra_fields)
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin): 
