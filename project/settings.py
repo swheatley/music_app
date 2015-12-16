@@ -60,6 +60,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'main',
     'social.apps.django_app.default',
+    'rest_framework',
+    # 'snippets',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -114,7 +116,7 @@ DATABASES = {
         'NAME': 'music_app',
         'HOST': '127.0.0.1',
         'USER': 'root',
-        'PASSWORD': '1jjackson!',
+        'PASSWORD': 'root',
         'PORT': ''
     }
 }

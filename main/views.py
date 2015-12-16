@@ -5,7 +5,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 from main.models import Genres, Artist, Albums, Tracks
 
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponseRedirect #JsonResponse
 
 from main.models import CustomUser
 from main.forms import UserSignUp, UserLogin

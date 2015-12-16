@@ -1,52 +1,59 @@
+{% extends 'base2.html' %}
 {% load staticfiles %}
 
 {% block content %}
 
-<div class="login">
+<div class="container">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="row">
+            
     
 
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+                {% if form.errors %}
+                <p>Your username and password didn't match. Please try again.</p>
+                {% endif %}
 
-{% if request.user.is_anonymous %}
-    <form method="post" action="{% url 'login_view' %}">
-        {% csrf_token %}
-        <table>
-        <tr>
-            <td>{{ form.email.label_tag }}</td>
-            <td>{{ form.email }}</td>
-        </tr>
-        <tr>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
-        </tr>
-        </table>
+                {% if request.user.is_anonymous %}
+                    <form method="post" action="{% url 'login_view' %}">
+                        {% csrf_token %}
+                        <table>
+                        <tr>
+                            <td>{{ form.email.label_tag }}</td>
+                            <td>{{ form.email }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form.password.label_tag }}</td>
+                            <td>{{ form.password }}</td>
+                        </tr>
+                        </table>
 
-        <input type="submit" value="login" />
-        <input type="hidden" name="next" value="{{ next }}" />
-    </form>
-    </br>
+                        <input type="submit" value="login" />
+                        <input type="hidden" name="next" value="{{ next }}" />
+                    </form>
+                    </br>
 
-    <a href="{% url 'social:begin' 'twitter' %}?next={% url 'main_page' %}">Login with Twitter</a>
-    <br>
-    <a href="{% url 'social:begin' 'facebook' %}?next={% url 'main_page' %}">Login with Facebook</a>
-    <br>
-    <a href="{% url 'social:begin' 'instagram' %}?next={% url 'main_page' %}">Login with Instagram</a>
+                    <a class="social_oauth" href="{% url 'social:begin' 'twitter' %}?next={% url 'main_page' %}">Login with Twitter</a>
+                    <br>
+                    <a class="social_oauth" href="{% url 'social:begin' 'facebook' %}?next={% url 'main_page' %}">Login with Facebook</a>
+                    <br>
+                    <a class="social_oauth" href="{% url 'social:begin' 'instagram' %}?next={% url 'main_page' %}">Login with Instagram</a>
 
-{% else %}
+                {% else %}
 
-<a href="/main_page/">logout</a>
+                <a href="/">logout</a>
 
-{% endif %}
+                {% endif %}
 
 
-{{ valid }}
-{{form.errors }}
+                {{ valid }}
+                {{form.errors }}
+            
         
+        </div>
     </div>
+</div>
 
-{% endblock %}
+{% endblock  %}
 
 
 

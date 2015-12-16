@@ -16,7 +16,7 @@ class CustomUserCreationForm(UserCreationForm):
 
 class CustomUserChangeForm(UserChangeForm):
     def __init__(self, *args, **kwargs):
-        super(CustomUserhangeForm, self).__init(*args, **kwargs)
+        super(CustomUserChangeForm, self).__init(*args, **kwargs)
         #del self.fields['username']
 
     class Meta:
@@ -28,12 +28,12 @@ class CustomUserChangeForm(UserChangeForm):
 class UserSignUp(forms.Form):
     name = forms.CharField(required=True)
     email = forms.CharField(required=True)
-    password = forms.CharField(required=True, widget = forms.PasswordInput())
+    password = forms.CharField(required=True, widget=forms.PasswordInput())
 
 
 class UserLogin(forms.Form):
     email = forms.CharField(required=True)
-    password = forms.CharField(required=True, widget = forms.PasswordInput())
+    password = forms.CharField(required=True, widget=forms.PasswordInput())
 
 
 

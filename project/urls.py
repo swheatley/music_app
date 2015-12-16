@@ -26,7 +26,7 @@ from main import views
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url('', include('social.apps.django_app.urls', namespace='social')),
-   
+    # url(r'^', include('genres.urls')),
 
 
 
@@ -47,7 +47,7 @@ urlpatterns = [
     #url(r'^tracks_detail/(?P<pk>\d+)/$', views.TrackDetailView()),
     #url(r'^tracks_create/$', views.TrackCreateView()),
 
-    url(r'^main_page/$', 'main.views.main_page', name='main_page'),
+    url(r'^$', 'main.views.main_page', name='main_page'),
 
     #url(r'^login/$', auth_views.login, {'template_name': 'login.html'}),
     url(r'^logout/$', 'main.views.logout_view', name='logout_view'),

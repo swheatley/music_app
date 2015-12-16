@@ -1,9 +1,14 @@
 from django.db import models
-
 from django.utils import timezone
 from django.utils.http import urlquote
 from django.core.mail import send_mail
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
+from pygments.lexers import get_all_lexers
+from pygments.styles import get_all_styles
+
+LEXERS = [item for item in get_all_lexers() if item[1]]
+LANGUAGE_CHOICES = sorted([(item[1][0], item[0]) for item in LEXERS])
+STYLE_CHOICES = sorted((item, item) for item in get_all_styles())
 
 
 class Genres(models.Model):
@@ -14,6 +19,9 @@ class Genres(models.Model):
 
     class Meta:
         verbose_name_plural='Genres'
+
+    # # class Meta:
+    #     ordering = ('created', )
 
     def __unicode__(self):
         return self.genre_title
