@@ -78,6 +78,8 @@
                                     <a href="/signup/">Register</a>
                                 </button>
                             </li>
+                            
+                            
                             <li>
                                 <button class="btn btn-default btn-lg" type="button">
                                     <a href="/login/">Login</a>
@@ -85,20 +87,10 @@
                             </li>
                            
                         </ul>
-            </button>
+            
 
                     
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                        
-                        {% if user.is_anonymous %}
-                            <a href="{% url 'login_view' %}">login</a>
-                        {% else %}
-                            {{ user }}
-                            </br>
-                            <a href="{% url 'logout_view' %}?next=/">logout</a>
-                        {% endif %}
-
-                    </div>
+                  
                    
             
 
@@ -107,6 +99,21 @@
         </div>
         <!-- /.container -->
     </nav>
+
+          <div class="col-sm-12 col-md-12 col-lg-12">
+                        
+                        {% if user.is_anonymous %}
+                            <a href="{% url 'login_view' %}"></a>
+                        {% else %}
+                            <button class="btn btn-default btn-lg user" type="button"> <a id="user" href="#">{{user}}</a></button>
+                            <button class="btn btn-default btn-lg user" type="button"><a href="{% url 'logout_view' %}?next=/">logout</a></button>
+                        {% endif %}
+
+                    </div>
+    
+        
+                            
+                            
 
     {% block body %}
 

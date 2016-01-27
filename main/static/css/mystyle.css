@@ -59,3 +59,10 @@ label{
     font-weight: bolder;
     text-decoration: none;
 }
+.user{
+    float: left;
+    margin-left: 30%;
+    margin-top: 30%;
+    display: inline;
+
+}
