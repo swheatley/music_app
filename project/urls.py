@@ -25,41 +25,36 @@ from main import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url('', include('social.apps.django_app.urls', namespace='social')),
+    url('', include('social.apps.django_app.urls', namespace='social')),    
+    url(r'^$', 'main.views.main_page', name='main_page'),
+
     # url(r'^', include('genres.urls')),
+    # url(r'^$', views.GenreListView.as_view()),
+    # url(r'^genres_detail/(?P<pk>\d+)/$', views.GenreDetailView.as_view()),
 
-
-
-
+    
     url(r'^genres_list/$', views.GenreListView.as_view()),
-    url(r'^genres_detail/(?P<pk>\d+)/$', views.GenreDetailView.as_view()),
     url(r'^genres_create/$', views.GenreCreateView.as_view()),
 
     url(r'^artist_list/$', views.ArtistListView.as_view()),
-    #url(r'^artist_detail/(?P<pk>\d+)/$', views.ArtistDetailView()),
-    #url(r'^artist_create/$', views.ArtistCreateView()),
+    # url(r'^artist_detail/(?P<pk>\d+)/$', views.ArtistDetailView()),
+    # url(r'^artist_create/$', views.ArtistCreateView()),
 
     url(r'^albums_list/$', views.AlbumListView.as_view()),
     # url(r'^albums_detail/(?P<pk>\d+)/$', views.AlbumDetailView()),
     # url(r'^albums_create/$', views.AlbumCreateView()),
 
     url(r'^tracks_list/$', views.TrackListView.as_view()),
-    #url(r'^tracks_detail/(?P<pk>\d+)/$', views.TrackDetailView()),
-    #url(r'^tracks_create/$', views.TrackCreateView()),
-
-    url(r'^$', 'main.views.main_page', name='main_page'),
-
-    #url(r'^login/$', auth_views.login, {'template_name': 'login.html'}),
-    url(r'^logout/$', 'main.views.logout_view', name='logout_view'),
+    # url(r'^tracks_detail/(?P<pk>\d+)/$', views.TrackDetailView()),
+    # url(r'^tracks_create/$', views.TrackCreateView()),
 
     url(r'^signup/$', 'main.views.signup', name='signup_view'),
-
     url(r'^login/$', 'main.views.login_view', name='login_view'),
-    url(r'^register/$', CreateView.as_view(template_name='register.html', form_class=CustomUserCreationForm, success_url='/')),
-    url(r'^$', views.GenreListView.as_view()),
+    url(r'^logout/$', 'main.views.logout_view', name='logout_view'),
 
-    url(r'^ajax_search/$', 'main.views.ajax_search'),
-    url(r'^json_response/$', 'main.views.json_response'),
+    # url(r'^register/$', CreateView.as_view(template_name='register.html', form_class=CustomUserCreationForm, success_url='/')),
+    # url(r'^ajax_search/$', 'main.views.ajax_search'),
+    # url(r'^json_response/$', 'main.views.json_response'),
 
 ]
 

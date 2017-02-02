@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 
-import sys, os 
+import django
+import sys
+import os
 import requests
 from unidecode import unidecode
 from PIL import Image
 
+
 # .. looks up one directory
-sys.path.append("..") 
+sys.path.append("..")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings")
 
-import django
-
-from django.conf import settings 
+from django.conf import settings
 
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
-
 from main.models import Albums, Artist, Genres, Tracks
 
 django.setup()
@@ -32,13 +32,11 @@ for album in Tracks.objects.all():
     #required=Trueesponse_dict = response.json()
     response_dict = response.json()
 
-
     for data in response_dict['dataset']:
         print "IMAGE: %s" % data.get('album_image_file')
         print "TITLE: %s" % data.get('album_title')
         print "ARTIST: %s" % data.get('artist_name')
         print "ARTIST HANDLE: %s" % data.get('artist_handle')
-
 
         album, created = Albums.objects.get_or_create(album_id=data.get('album_id'))
 
@@ -55,13 +53,5 @@ for album in Tracks.objects.all():
             print e
 
         album.save()
-
-       
-
-  
-
-   
-    
-
 
 

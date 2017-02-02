@@ -17,7 +17,7 @@ class CustomUserCreationForm(UserCreationForm):
 class CustomUserChangeForm(UserChangeForm):
     def __init__(self, *args, **kwargs):
         super(CustomUserChangeForm, self).__init(*args, **kwargs)
-        #del self.fields['username']
+        # del self.fields['username']
 
     class Meta:
         model = CustomUser

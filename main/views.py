@@ -114,7 +114,7 @@ class GenreListView(ListView):
 class GenreDetailView(DetailView):
     model = Genres
     template_name = 'genres_detail.html'
-    context_object_name = 'genre'
+    context_object_name = 'genres'
 
 
 # This is for forms

@@ -16,19 +16,19 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 AUTH_USER_MODEL = 'main.CustomUser'
-SOCIAL_AUTH_USER_MODEL = 'main.CustomUser'   
+# SOCIAL_AUTH_USER_MODEL = 'main.CustomUser'
 
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/' 
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
 SOCIAL_AUTH_LOGIN_URL = '/login/'
 
-SOCIAL_AUTH_TWITTER_KEY = '9rCc3lx8eN6FmPoGWpDWYBUUM' 
+SOCIAL_AUTH_TWITTER_KEY = '9rCc3lx8eN6FmPoGWpDWYBUUM'
 SOCIAL_AUTH_TWITTER_SECRET = 'XkQgkmLTA5TJ6jbuGznBjCA4SZPio1zFo6VqcPVmUGN5JAuF51'
 
 
-SOCIAL_AUTH_FACEBOOK_KEY = '570577979777935' 
+SOCIAL_AUTH_FACEBOOK_KEY = '570577979777935'
 SOCIAL_AUTH_FACEBOOK_SECRET = '7fc6aa57f1013ba3fe7fb07b1e0ec7c4'
 
-SOCIAL_AUTH_INSTAGRAM_KEY = 'ef89aa0c732a4ef1a7c0a5aed5e66465' 
+SOCIAL_AUTH_INSTAGRAM_KEY = 'ef89aa0c732a4ef1a7c0a5aed5e66465'
 SOCIAL_AUTH_INSTAGRAM_SECRET = '250e9176b5e84c33ba2f3d875ec4d570'
 
 
@@ -43,7 +43,7 @@ SECRET_KEY = '+dc3ghfw%xos5$hym5g6v^q8v_$lzcheqd8)268_i7#ww5fk9k'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-#access_token=280466341.ef89aa0.6e3a9e27c22340859168677b5773ef90
+access_token = '280466341.ef89aa0.6e3a9e27c22340859168677b5773ef90'
 
 # Application definition
 
@@ -55,9 +55,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'social.apps.django_app.default',
+    # d'social.apps.django_app.default',
     'rest_framework',
-    # 'snippets',
+    #'snippets',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -71,7 +71,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-AUTHENTICATION_BACKENDS = (  
+AUTHENTICATION_BACKENDS = (
     'social.backends.facebook.FacebookOAuth2',
     'social.backends.google.GoogleOAuth2',
     'social.backends.twitter.TwitterOAuth',
@@ -135,12 +135,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+FMAKEY = 'IZTZG95VPMY93N3N'
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# MEDIA_URL = '/media/'  
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
-
-FMAKEY = 'IZTZG95VPMY93N3N'
-
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
